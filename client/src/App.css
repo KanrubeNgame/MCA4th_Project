@@ -1,0 +1,8 @@
+.App {
+  text-align: center;
+}
+
+.background{
+  background-image: linear-gradient(to top, #00f9bc, #39f6bf, #52f3c2, #64efc4, #74ecc6, #67e5ca, #5dddcc, #55d5ce, #2bc7d2, #00b8d5, #00a8d5, #0097d1);
+
+}
