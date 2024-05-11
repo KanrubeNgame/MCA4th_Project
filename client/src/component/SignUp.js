@@ -3,10 +3,13 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import { MenuItem, Select, Box, Grid, Link,Container,Typography,TextField,CssBaseline,Button,Avatar  } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -24,6 +27,7 @@ export default function SignUp() {
       password: data.get('password'),
     }).then((response) => {
       console.log(response.data);
+      navigate("/log");
     })
   };
 

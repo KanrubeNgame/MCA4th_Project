@@ -13,10 +13,14 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const defaultTheme = createTheme();
 
 export default function SignIn({store}) {
+const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     alert(document.getElementsByName('email')[0].value);
     event.preventDefault();
@@ -31,11 +35,24 @@ export default function SignIn({store}) {
     }).then((res) => {
       console.log(res.data);
       if(res.data.msg!=="failed"){
-        store.dispatch({"type":"login",data:{"email":res.data.msg.email, "role":res.data.msg.role, "token":res.data.token}})
-      }
-    })
-  };
+        const {email, role } = res.data.msg;
+        console.log("Role:", role);
+        store.dispatch({"type":"login",data:{"email":email, "role":role, "token":res.data.token}});
 
+        //Redirecting to specific Dashboard
+        if(role === '1'){
+          console.log("redireting to Admin");
+          navigate("/student");
+        }else if( role === '2'){
+          console.log("redirecting to company");
+          navigate("/student");
+        }else if( role === '3'){
+          console.log("redirecting to stuident");
+          navigate("/student");
+        }
+      }
+  });
+  }
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component="main" maxWidth="xs">

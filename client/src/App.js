@@ -5,6 +5,7 @@ import Appbar from './component/Appbar';
 import SignUp from './component/SignUp';
 import SignIn from './component/SignIn';
 import Showall from './component/Showall';
+import StudentProfile from './component/Student/student';
 
 function App({store}) {
   return (
@@ -16,6 +17,7 @@ function App({store}) {
             <Route path='/reg' element={<SignUp />} />
             <Route path='/log' element={<SignIn store={store} />} />
             <Route path='/sho' element={<Showall />} />
+            <Route path='/student' element={<StudentProfile />} />
           </Routes>
       </BrowserRouter>
     </div>

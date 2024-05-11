@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css'
-import {Typography,Grid, Container, Button, Card, CardContent} from '@mui/material/';
+import {Typography, Container, Button} from '@mui/material/';
 import backgroundImage from '../asset/bg.jpg'
 import { Link } from 'react-router-dom';
 
@@ -15,9 +15,6 @@ const backgroundStyle = {
   justifyContent: 'center',
   alignItems: 'center',
 };
-
-
-
 const Home = () => {
   return (
     <>

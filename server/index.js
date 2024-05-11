@@ -3,7 +3,7 @@ const cors = require('cors');
 const { MongoClient } = require('mongodb');
 const jwt = require ('jsonwebtoken');
 const {expressjwt: exjwt} = require ('express-jwt');
-const jwt_decode = require('jwt-decode');
+const bcrypt = require('bcrypt');
 
 const app = new express();
 app.use(express.json());
@@ -43,7 +43,7 @@ app.post('/login',async(req,res)=>{
         res.send({
             msg: result,
             token:token
-        })
+        });
     }
     else{
         res.send({
@@ -51,8 +51,8 @@ app.post('/login',async(req,res)=>{
             token: token
         })
     }
-    console.log(token)
-    console.log(result);
+    //console.log(token)
+    //console.log(result);
 })
 
 app.get('/showall',jwtmw,async(req,res)=>{
